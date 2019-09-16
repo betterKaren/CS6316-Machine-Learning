@@ -123,22 +123,23 @@ if __name__ == "__main__":
     plt.show()
 
     theta = normal_equation(x, y)
+    print("normal equation theta = ", theta)
     plot(x, y, theta, "Normal Equation Best Fit")
 
     # You should try multiple non-zero learning rates and  multiple different (non-zero) number of iterations
-    thetas = gradient_descent(x, y, 1e-3, 100)
-    print("GD thetas = ", thetas)
+    thetas = gradient_descent(x, y, 0.001, 100)
+    print("GD theta = ", thetas[-1])
     plot(x, y, thetas[-1], "Gradient Descent Best Fit")
     plot_training_errors(x, y, thetas, "Gradient Descent Mean Epoch vs Training Loss")
 
     # You should try multiple non-zero learning rates and  multiple different (non-zero) number of iterations
-    thetas = stochiastic_gradient_descent(x, y, 1e-3, 100) # Try different learning rates and number of iterations
-    print("SGD thetas = ", thetas)
+    thetas = stochiastic_gradient_descent(x, y, 0.001, 100) # Try different learning rates and number of iterations
+    print("SGD theta = ", thetas[-1])
     plot(x, y, thetas[-1], "Stochiastic Gradient Descent Best Fit")
     plot_training_errors(x, y, thetas, "Stochiastic Gradient Descent Mean Epoch vs Training Loss")
 
     # You should try multiple non-zero learning rates and  multiple different (non-zero) number of iterations
-    thetas = minibatch_gradient_descent(x, y, 1e-3, 100, 10)
-    print("Minibatch GD thetas = ", thetas)
+    thetas = minibatch_gradient_descent(x, y, 0.001, 100, 20)
+    print("Minibatch GD theta = ", thetas[-1])
     plot(x, y, thetas[-1], "Minibatch Gradient Descent Best Fit")
     plot_training_errors(x, y, thetas, "Minibatch Gradient Descent Mean Epoch vs Training Loss")
